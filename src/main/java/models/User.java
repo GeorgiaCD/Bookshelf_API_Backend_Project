@@ -4,22 +4,22 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Entity
+@Entity(name = "users")
 public class User { // K & R
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "user_name")
     private String userName;
 
     @OneToMany(mappedBy = "user")
-    private List<Bookshelf> bookshelf;
+    private List<Bookshelf> bookshelves;
 
-    public User(String userName, List<Bookshelf> bookshelf) {
+    public User(String userName, List<Bookshelf> bookshelves) {
         this.userName = userName;
-        this.bookshelf = bookshelf;
+        this.bookshelves = bookshelves;
     }
 
     public User(){
@@ -43,10 +43,10 @@ public class User { // K & R
     }
 
     public List<Bookshelf> getBookshelf() {
-        return bookshelf;
+        return bookshelves;
     }
 
-    public void setBookshelf(List<Bookshelf> bookshelf) {
-        this.bookshelf = bookshelf;
+    public void setBookshelf(List<Bookshelf> bookshelves) {
+        this.bookshelves = bookshelves;
     }
 }

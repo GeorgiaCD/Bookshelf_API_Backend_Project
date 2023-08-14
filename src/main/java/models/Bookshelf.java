@@ -3,7 +3,7 @@ package models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
-@Entity
+@Entity(name = "bookshelves")
 public class Bookshelf { // K & R
 
     @Id
@@ -12,12 +12,12 @@ public class Bookshelf { // K & R
 
     @ManyToOne
     @JoinColumn (name = "user_id")
-    @JsonIgnoreProperties ({"bookshelfs"})
+    @JsonIgnoreProperties ({"bookshelves"})
     private User user;
 
     @ManyToOne
     @JoinColumn (name = "book_id")
-    @JsonIgnoreProperties ({"bookshelfs"})
+    @JsonIgnoreProperties ({"bookshelves"})
     private Book book;
 
     @Column
@@ -27,11 +27,10 @@ public class Bookshelf { // K & R
     private int rating;
 
     public
-    Bookshelf(User user, Book book, Status status, int rating){
+    Bookshelf(User user, Book book, Status status){
         this.user = user;
         this.book = book;
         this.status = status;
-        this.rating = rating;
     }
 
     public Bookshelf(){}

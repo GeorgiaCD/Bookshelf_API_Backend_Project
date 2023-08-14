@@ -12,7 +12,7 @@ public class Book { // F & G
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int id;
+    private Long id;
 
     @Column
     private String title;
@@ -29,9 +29,9 @@ public class Book { // F & G
     @Column(name = "number_of_pages")
     private int numberOfPages;
 
-    @OneToMany(mappedBy = "books")
+    @OneToMany(mappedBy = "book")
     @JsonIgnoreProperties({"books"})
-    private List<Bookshelf> bookshelf;
+    private List<Bookshelf> bookshelves;
 
     public Book(String title, Author author, Genre genre, int year, int numberOfPages){
         this.title = title;
@@ -39,18 +39,18 @@ public class Book { // F & G
         this.genre = genre;
         this.year = year;
         this.numberOfPages = numberOfPages;
-        this.bookshelf = new ArrayList<>();
+        this.bookshelves = new ArrayList<>();
     }
 
     public Book(){}
 
 //    Getters & Setters
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -95,10 +95,10 @@ public class Book { // F & G
     }
 
     public List<Bookshelf> getBookshelf() {
-        return bookshelf;
+        return bookshelves;
     }
 
-    public void setBookshelf(List<Bookshelf> bookshelf) {
-        this.bookshelf = bookshelf;
+    public void setBookshelf(List<Bookshelf> bookshelves) {
+        this.bookshelves = bookshelves;
     }
 }

@@ -13,12 +13,12 @@ public class Author { // F & G
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int id;
+    private Long id;
 
     @Column
     private String name;
 
-    @OneToMany(mappedBy = ("authors"))
+    @OneToMany(mappedBy = ("author"))
     @JsonIgnoreProperties({"authors"})
     private List<Book> books;
 
@@ -33,11 +33,11 @@ public class Author { // F & G
 //    Getters & Setters
 
 
-    public int getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -17,5 +17,5 @@ public enum Genre { // F & G
         TECHNOLOGY,
         PSYCHOLOGY,
         PHILOSOPHY,
-        TRAVEL
+        TRAVEL;
 }
