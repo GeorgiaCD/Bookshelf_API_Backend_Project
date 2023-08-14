@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity(name = "books")
 public class Book { // F & G
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -28,7 +28,7 @@ public class Book { // F & G
 
     @Column(name = "number_of_pages")
     private int numberOfPages;
-    
+
     @OneToMany(mappedBy = "books")
     @JsonIgnoreProperties({"books"})
     private List<Bookshelf> bookshelf;
