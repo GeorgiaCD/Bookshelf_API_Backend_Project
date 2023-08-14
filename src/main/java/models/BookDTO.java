@@ -11,11 +11,10 @@ public class BookDTO {
     private int yearPublished;
     private int numberOfPages;
 
-    public BookDTO(String title, Long authorId, Long genreId, List<Long> bookshelfIds, int yearPublished, int numberOfPages) {
+    public BookDTO(String title, Long authorId, Long genreId, int yearPublished, int numberOfPages) {
         this.title = title;
         this.authorId = authorId;
         this.genreId = genreId;
-        this.bookshelfIds = bookshelfIds;
         this.yearPublished = yearPublished;
         this.numberOfPages = numberOfPages;
     }
