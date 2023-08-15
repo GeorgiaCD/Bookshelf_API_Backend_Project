@@ -10,7 +10,7 @@ import services.AuthorService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/author")
+@RequestMapping("/authors")
 public class AuthorController {
 
     @Autowired
