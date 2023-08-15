@@ -2,6 +2,7 @@ package controllers;
 
 import models.Bookshelf;
 import models.User;
+import models.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,14 @@ public class UserController {
         User user = userService.getUserById(id);
         return new ResponseEntity<>(user, HttpStatus.FOUND);
     }
+
+    //UPDATE
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<User> updateUser(@RequestBody UserDTO userDTO, @PathVariable Long id){
+        User updatedUser = userService.updateUser(userDTO, id);
+        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+    }
+
 
     //CREATE
 
