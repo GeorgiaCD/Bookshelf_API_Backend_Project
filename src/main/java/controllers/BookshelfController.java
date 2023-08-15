@@ -20,19 +20,19 @@ public class BookshelfController {
     @PostMapping
     public ResponseEntity<Bookshelf> addToBookshelf(BookshelfDTO bookshelfDTO){
         Bookshelf bookshelf = bookshelfService.addToBookshelf(bookshelfDTO);
-        return new ResponseEntity<>(bookshelf, HttpStatus.OK);
+        return new ResponseEntity<>(bookshelf, HttpStatus.CREATED);
     }
 
     @PatchMapping(value = "/{id}")
     public ResponseEntity<Bookshelf> updateBookshelf(BookshelfDTO bookshelfDTO, @PathVariable Long id){
-        Bookshelf bookshelf = bookshelfService.updateBookshelf(bookshelfDTO);
+        Bookshelf bookshelf = bookshelfService.updateBookshelf(bookshelfDTO, id);
         return new ResponseEntity<>(bookshelf, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Bookshelf> deleteBookFromBookshelf(BookshelfDTO bookshelfDTO, @PathVariable Long id){
-        Bookshelf bookshelf = bookshelfService.deleteBookFromBookshelf(bookshelfDTO);
-        return new ResponseEntity<>(bookshelf, HttpStatus.OK);
+    public ResponseEntity<Bookshelf> deleteBookFromBookshelf(@PathVariable Long id){
+        Bookshelf bookshelf = bookshelfService.deleteBookFromBookshelf(id);
+        return new ResponseEntity<>(bookshelf, HttpStatus.GONE);
     }
 
 
