@@ -29,10 +29,11 @@ public class BookController {
 //    INDEX
     @GetMapping
     public ResponseEntity<List<Book>> getALlBooksAndGenres(@RequestParam(required = false, name ="genre") int genreId,
-                                                           @RequestParam(required = false, name ="author") int authorId,
-                                                            @RequestParam(required = false, name ="year") int year)
+                                                           @RequestParam(required = false, name ="author") Long authorId,
+                                                            @RequestParam(required = false, name ="year") int year,
+                                                           @RequestParam(required = false, name = "length") int length)
     {
-        List<Book> filteredBooks = bookService.getFilteredBooks(genreId, authorId, year);
+        List<Book> filteredBooks = bookService.getFilteredBooks(genreId, authorId, year, length);
 
         if(filteredBooks.isEmpty()){
             List<Book> allBooks = bookService.getAllBooks();
