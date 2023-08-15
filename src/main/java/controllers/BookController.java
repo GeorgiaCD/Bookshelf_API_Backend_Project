@@ -30,7 +30,7 @@ public class BookController {
     @GetMapping
     public ResponseEntity<List<Book>> getALlBooksAndGenres(@RequestParam(required = false, name ="genre") int genreId,
                                                            @RequestParam(required = false, name ="author") Long authorId,
-                                                            @RequestParam(required = false, name ="year") int year,
+                                                           @RequestParam(required = false, name ="year") int year,
                                                            @RequestParam(required = false, name = "length") int length)
     {
         List<Book> filteredBooks = bookService.getFilteredBooks(genreId, authorId, year, length);
@@ -39,7 +39,7 @@ public class BookController {
             List<Book> allBooks = bookService.getAllBooks();
             return new ResponseEntity<>(allBooks, HttpStatus.OK);
         }
-        return new ResponseEntity<>(filteredBooks, HttpStatus.OK)
+        return new ResponseEntity<>(filteredBooks, HttpStatus.OK);
     }
 
 
