@@ -8,11 +8,10 @@ public class BookshelfDTO {
     private int rating;
 
     public
-    BookshelfDTO(Long userId, Long bookId, String status, int rating){
+    BookshelfDTO(Long userId, Long bookId, String status){
         this.userId = userId;
         this.bookId = bookId;
         this.status = status;
-        this.rating = rating;
     }
 
     public BookshelfDTO(){}
