@@ -20,7 +20,6 @@ public class BookDTO {
     }
 
     public BookDTO(){
-
     }
 
     public String getTitle() {

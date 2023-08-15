@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Author;
+import models.AuthorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,15 +38,15 @@ public class AuthorController {
 
 // POST add an author
    @PostMapping
-   public ResponseEntity<List<Author>> addAuthor(@RequestBody Author author){
-        authorService.saveAuthor(author);
+   public ResponseEntity<List<Author>> addAuthor(@RequestBody AuthorDTO authorDTO){
+        authorService.saveAuthor(authorDTO);
         return new ResponseEntity<>(authorService.getAllAuthors(), HttpStatus.CREATED);
    }
 
 //   UPDATE
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Author> updateAuthor(@RequestBody Author author, @PathVariable Long id){
-        Author updatedAuthor = authorService.updateAuthor(author, id);
+    public ResponseEntity<Author> updateAuthor(@RequestBody AuthorDTO authorDTO, @PathVariable Long id){
+        Author updatedAuthor = authorService.updateAuthor(authorDTO, id);
         return new ResponseEntity(updatedAuthor, HttpStatus.OK);
     }
 

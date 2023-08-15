@@ -56,4 +56,8 @@ public class Author { // F & G
     public void setBooks(List<Book> books) {
         this.books = books;
     }
+
+    public void addBook(Book book){
+        this.books.add(book);
+    }
 }
