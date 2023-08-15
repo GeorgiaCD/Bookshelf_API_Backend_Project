@@ -1,4 +1,4 @@
-package models;
+package com.example.bnta.bookshelf.models;
 
 public enum Genre { // F & G
         ROMANCE,

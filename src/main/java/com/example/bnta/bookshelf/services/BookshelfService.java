@@ -1,13 +1,13 @@
-package services;
+package com.example.bnta.bookshelf.services;
 
-import models.Bookshelf;
-import models.BookshelfDTO;
-import models.Status;
+import com.example.bnta.bookshelf.models.Bookshelf;
+import com.example.bnta.bookshelf.models.BookshelfDTO;
+import com.example.bnta.bookshelf.models.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.BookRepository;
-import repositories.BookshelfRepository;
-import repositories.UserRepository;
+import com.example.bnta.bookshelf.repositories.BookRepository;
+import com.example.bnta.bookshelf.repositories.BookshelfRepository;
+import com.example.bnta.bookshelf.repositories.UserRepository;
 
 @Service
 public class BookshelfService {

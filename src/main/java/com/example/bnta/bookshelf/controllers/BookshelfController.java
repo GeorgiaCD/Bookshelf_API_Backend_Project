@@ -1,14 +1,12 @@
-package controllers;
+package com.example.bnta.bookshelf.controllers;
 
-import models.Bookshelf;
-import models.BookshelfDTO;
+import com.example.bnta.bookshelf.models.Bookshelf;
+import com.example.bnta.bookshelf.models.BookshelfDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import services.BookshelfService;
-
-import java.util.List;
+import com.example.bnta.bookshelf.services.BookshelfService;
 
 @RestController
 @RequestMapping(value = "bookshelf")
