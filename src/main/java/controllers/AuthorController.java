@@ -21,7 +21,7 @@ public class AuthorController {
     @GetMapping
     public ResponseEntity<List<Author>> getAllAuthors(@RequestParam(required = false, name = "name") String name){
         if(name!= null){
-            return new ResponseEntity<>(authorService.getAuthorByName(), HttpStatus.OK);
+            return new ResponseEntity<>(authorService.getAuthorByName(name), HttpStatus.OK);
         }
         List<Author> allAuthors = authorService.getAllAuthors();
         return new ResponseEntity<>(allAuthors, HttpStatus.OK);
