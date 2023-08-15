@@ -101,4 +101,8 @@ public class Book { // F & G
     public void setBookshelf(List<Bookshelf> bookshelves) {
         this.bookshelves = bookshelves;
     }
+
+    public void addBookshelf(Bookshelf bookshelf){
+        this.bookshelves.add(bookshelf);
+    }
 }

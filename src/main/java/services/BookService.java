@@ -1,11 +1,16 @@
 package services;
 
+import models.Author;
 import models.Book;
 import models.BookDTO;
+import models.Bookshelf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import repositories.AuthorRepository;
 import repositories.BookRepository;
+import repositories.BookshelfRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -14,6 +19,14 @@ public class BookService {
 
     @Autowired
     BookRepository bookRepository;
+
+    @Autowired
+    BookshelfRepository bookshelfRepository;
+
+
+    @Autowired
+    AuthorService authorService;
+
 
     // get all books
     public List<Book> getAllBooks(){
@@ -36,14 +49,31 @@ public class BookService {
         bookRepository.save(newBook);
     }
 
-    // update book
-//        public Book updateBook(Book book, Long id){
-//        bookRepository.
-//    }
+//     update book
+     public Book updateBook(BookDTO bookDTO, Long id){
+        Book bookToUpdate = bookRepository.findById(id).get();
+        bookToUpdate.setTitle(bookDTO.getTitle());
+        bookToUpdate.setAuthor(authorService.getAuthorById(bookDTO.getAuthorId()));
+        bookToUpdate.setGenre(bookDTO.getGenreId());
+        bookToUpdate.setYear(bookDTO.getYearPublished());
+        bookToUpdate.setNumberOfPages(bookDTO.getNumberOfPages());
+        bookToUpdate.setBookshelf(new ArrayList<>());
+
+        for(Long bookshelfId : bookDTO.getBookshelfIds()){
+            Bookshelf bookshelf = bookshelfRepository.findById(bookshelfId).get();
+            bookToUpdate.addBookshelf(bookshelf);
+        }
+        bookRepository.save(bookToUpdate);
+        return bookToUpdate;
+        }
 
     // delete
     public void deleteBook(Long id){
         bookRepository.deleteById(id);
     }
+
+//    public void addEstate(Estate estate){
+//        this.estates.add(estate);
+//    }
 
 }
