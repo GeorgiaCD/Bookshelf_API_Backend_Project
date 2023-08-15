@@ -42,7 +42,7 @@ public class BookService {
     // need to get objects from ids
     public void saveBook(BookDTO bookDTO){
         Book newBook = new Book(bookDTO.getTitle(),
-                                bookDTO.getAuthorId(), //method to get author from id
+                                authorService.getAuthorById(bookDTO.getAuthorId()), //method to get author from id
                                 bookDTO.getGenreId(),  // method to get genre from id
                                 bookDTO.getYearPublished(),
                                 bookDTO.getNumberOfPages());
@@ -72,8 +72,7 @@ public class BookService {
         bookRepository.deleteById(id);
     }
 
-//    public void addEstate(Estate estate){
-//        this.estates.add(estate);
-//    }
+    
+
 
 }
