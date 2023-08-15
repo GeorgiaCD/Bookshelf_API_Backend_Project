@@ -1,4 +1,4 @@
-package models;
+package com.example.bnta.bookshelf.models;
 
 import jakarta.persistence.*;
 

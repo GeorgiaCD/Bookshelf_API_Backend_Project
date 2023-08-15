@@ -1,12 +1,12 @@
-package controllers;
+package com.example.bnta.bookshelf.controllers;
 
-import models.Author;
-import models.AuthorDTO;
+import com.example.bnta.bookshelf.models.Author;
+import com.example.bnta.bookshelf.models.AuthorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import services.AuthorService;
+import com.example.bnta.bookshelf.services.AuthorService;
 
 import java.util.List;
 

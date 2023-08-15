@@ -1,15 +1,14 @@
-package services;
+package com.example.bnta.bookshelf.services;
 
-import models.Author;
-import models.AuthorDTO;
-import models.Book;
+import com.example.bnta.bookshelf.models.Author;
+import com.example.bnta.bookshelf.models.AuthorDTO;
+import com.example.bnta.bookshelf.models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.AuthorRepository;
-import repositories.BookRepository;
+import com.example.bnta.bookshelf.repositories.AuthorRepository;
+import com.example.bnta.bookshelf.repositories.BookRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AuthorService {

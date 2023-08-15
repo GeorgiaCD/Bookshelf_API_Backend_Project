@@ -1,17 +1,15 @@
-package controllers;
+package com.example.bnta.bookshelf.controllers;
 
-import models.Book;
-import models.BookDTO;
-import models.Genre;
+import com.example.bnta.bookshelf.models.Book;
+import com.example.bnta.bookshelf.models.BookDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import services.BookService;
+import com.example.bnta.bookshelf.services.BookService;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.RecursiveTask;
 
 @RestController
 @RequestMapping("/books")

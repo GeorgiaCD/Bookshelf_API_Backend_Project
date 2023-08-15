@@ -1,12 +1,12 @@
-package services;
+package com.example.bnta.bookshelf.services;
 
-import models.Book;
-import models.BookDTO;
-import models.Bookshelf;
+import com.example.bnta.bookshelf.models.Book;
+import com.example.bnta.bookshelf.models.BookDTO;
+import com.example.bnta.bookshelf.models.Bookshelf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.BookRepository;
-import repositories.BookshelfRepository;
+import com.example.bnta.bookshelf.repositories.BookRepository;
+import com.example.bnta.bookshelf.repositories.BookshelfRepository;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package models;
+package com.example.bnta.bookshelf.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;

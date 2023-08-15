@@ -1,4 +1,4 @@
-package models;
+package com.example.bnta.bookshelf.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class AuthorDTO {
     public AuthorDTO(){
     }
 
-    
+
     public String getName() {
         return name;
     }
