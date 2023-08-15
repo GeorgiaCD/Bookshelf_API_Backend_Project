@@ -24,8 +24,8 @@ public class UserController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<List<Bookshelf>> getBookshelfById(@PathVariable Long id){
-        List<Bookshelf> bookshelves = userService.getBookshelfById(id);
+    public ResponseEntity<List<Bookshelf>> getBookshelfByUserId(@PathVariable Long id){
+        List<Bookshelf> bookshelves = userService.getBookshelfByUserId(id);
         return new ResponseEntity<>(bookshelves, HttpStatus.FOUND);
     }
 
