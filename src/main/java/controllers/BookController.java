@@ -45,7 +45,7 @@ public class BookController {
 
 
 //    SHOW
-    @GetMapping(value = "/{id")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<Book>> getBook(@PathVariable Long id){
         Book foundBook = bookService.findBookById(id);
         return new ResponseEntity(foundBook, HttpStatus.OK);
@@ -59,7 +59,7 @@ public class BookController {
     }
 
 //    UPDATE
-    @PutMapping(value = "/{id")
+    @PutMapping(value = "/{id}")
     public ResponseEntity<Book> updateBook(@RequestBody BookDTO bookDTO, @PathVariable Long id){
         Book updatedBook = bookService.updateBook(bookDTO, id);
         return new ResponseEntity<>(updatedBook, HttpStatus.OK);
