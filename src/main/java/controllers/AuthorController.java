@@ -20,9 +20,10 @@ public class AuthorController {
 // GET by name (else)
 // GET all author
     @GetMapping
-    public ResponseEntity<List<Author>> getAllAuthors(@RequestParam(required = false, name = "name") String name){
+    public ResponseEntity<?> getAllAuthors(@RequestParam(required = false, name = "name") String name){
+//        ResponseEntity<List<Author>>
         if(name!= null){
-            return new ResponseEntity<>(authorService.getAuthorByName(name), HttpStatus.OK);
+            return new ResponseEntity(authorService.getAuthorByName(name), HttpStatus.OK);
         }
         List<Author> allAuthors = authorService.getAllAuthors();
         return new ResponseEntity<>(allAuthors, HttpStatus.OK);

@@ -9,6 +9,7 @@ import repositories.AuthorRepository;
 import repositories.BookRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AuthorService {
@@ -49,8 +50,9 @@ public class AuthorService {
         authorRepository.deleteById(id);
     }
 
-//    public void getAuthorByName(String name){
-//
-//    }
+    public Author getAuthorByName(String name){
+        Author author = authorRepository.findAuthorByName(name).get();
+        return author;
+    }
 
 }
