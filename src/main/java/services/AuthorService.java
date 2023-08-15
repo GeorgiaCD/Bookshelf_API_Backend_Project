@@ -39,7 +39,8 @@ public class AuthorService {
 
         for(Long bookId : authorDTO.getBookIds()){
             Book book = bookRepository.findById(bookId).get();
-            authorToUpdate.addBook(book);
+            book.setAuthor(authorToUpdate);
+            bookRepository.save(book);
         }
 
         authorRepository.save(authorToUpdate);
@@ -50,8 +51,8 @@ public class AuthorService {
         authorRepository.deleteById(id);
     }
 
-    public Author getAuthorByName(String name){
-        Author author = authorRepository.findAuthorByName(name).get();
+    public List<Author> getAuthorByName(String name){
+        List<Author> author = authorRepository.findAuthorByName(name);
         return author;
     }
 

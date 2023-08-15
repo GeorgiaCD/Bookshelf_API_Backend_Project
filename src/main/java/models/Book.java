@@ -17,7 +17,9 @@ public class Book { // F & G
     @Column
     private String title;
 
-    @Column
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    @JsonIgnoreProperties({"books"})
     private Author author;
 
     @Column

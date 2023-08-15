@@ -1,12 +1,10 @@
 package services;
 
-import models.Author;
 import models.Book;
 import models.BookDTO;
 import models.Bookshelf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.AuthorRepository;
 import repositories.BookRepository;
 import repositories.BookshelfRepository;
 
@@ -43,7 +41,7 @@ public class BookService {
     public void saveBook(BookDTO bookDTO){
         Book newBook = new Book(bookDTO.getTitle(),
                                 authorService.getAuthorById(bookDTO.getAuthorId()), //method to get author from id
-                                bookDTO.getGenreId(),  // method to get genre from id
+                                bookDTO.getGenre(),
                                 bookDTO.getYearPublished(),
                                 bookDTO.getNumberOfPages());
         bookRepository.save(newBook);
@@ -54,7 +52,7 @@ public class BookService {
         Book bookToUpdate = bookRepository.findById(id).get();
         bookToUpdate.setTitle(bookDTO.getTitle());
         bookToUpdate.setAuthor(authorService.getAuthorById(bookDTO.getAuthorId()));
-        bookToUpdate.setGenre(bookDTO.getGenreId());
+        bookToUpdate.setGenre(bookDTO.getGenre());
         bookToUpdate.setYear(bookDTO.getYearPublished());
         bookToUpdate.setNumberOfPages(bookDTO.getNumberOfPages());
         bookToUpdate.setBookshelf(new ArrayList<>());
@@ -71,7 +69,7 @@ public class BookService {
     public void deleteBook(Long id){
         bookRepository.deleteById(id);
     }
-    
+
 
 
 }
