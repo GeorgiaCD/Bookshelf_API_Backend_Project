@@ -4,10 +4,7 @@ import models.Author;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import services.AuthorService;
 
 import java.util.List;
@@ -19,10 +16,13 @@ public class AuthorController {
     @Autowired
     AuthorService authorService;
 
-// get by name
+// GET by name (else)
 // GET all author
     @GetMapping
-    public ResponseEntity<List<Author>> getAllAuthors(){
+    public ResponseEntity<List<Author>> getAllAuthors(@RequestParam(required = false, name = "name") String name){
+        if(name!= null){
+            return new ResponseEntity<>(authorService.getAuthorByName(), HttpStatus.OK);
+        }
         List<Author> allAuthors = authorService.getAllAuthors();
         return new ResponseEntity<>(allAuthors, HttpStatus.OK);
     }
@@ -32,7 +32,7 @@ public class AuthorController {
     @GetMapping(value = "/{id}")
     public ResponseEntity<Author> getAuthorById(Long id){
         Author author = authorService.getAuthorById(id);
-        return new ResponseEntity<>(author, HttpStatus.OK)
+        return new ResponseEntity<>(author, HttpStatus.OK);
     }
 
 // POST add an author
