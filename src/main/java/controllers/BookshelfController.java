@@ -23,7 +23,7 @@ public class BookshelfController {
         return new ResponseEntity<>(bookshelf, HttpStatus.CREATED);
     }
 
-    @PatchMapping(value = "/{id}")
+    @PatchMapping(value = "/{id}") //localhost8080:
     public ResponseEntity<Bookshelf> updateBookshelf(@RequestBody BookshelfDTO bookshelfDTO, @PathVariable Long id){
         Bookshelf bookshelf = bookshelfService.updateBookshelf(bookshelfDTO, id);
         return new ResponseEntity<>(bookshelf, HttpStatus.OK);

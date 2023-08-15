@@ -11,7 +11,7 @@ import services.UserService;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "user")
+@RequestMapping(value = "users")
 public class UserController {
 
     @Autowired
@@ -23,7 +23,7 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/{id}") //localhost8080:user/1
+    @GetMapping(value = "/{id}/bookshelf") //localhost8080:users/1/bookshelf
     public ResponseEntity<List<Bookshelf>> getBookshelfByUserId(@PathVariable Long id){
         List<Bookshelf> bookshelves = userService.getBookshelfByUserId(id);
         return new ResponseEntity<>(bookshelves, HttpStatus.FOUND);
