@@ -2,6 +2,7 @@ package controllers;
 
 import models.Book;
 import models.BookDTO;
+import models.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,12 +23,21 @@ public class BookController {
 //    Handles following:
 //    * GET /books
 //    * GET /books?genre="cooking"
+//    * GET / books?author_id = 1
+//    * GET / books?year = 1991
+//    * GET / books?length > 200
 //    INDEX
     @GetMapping
-    public ResponseEntity<List<Book>> getALlBooks(){
+    public ResponseEntity<List<Book>> getALlBooksAndGenres(@RequestParam(required = false, name ="genre") Genre genre){
+        if(genre!= null){
+            List<Book>  genreBooks = bookService.getBooksByGenre(genre);
+            return new ResponseEntity<>(genreBooks, HttpStatus.OK);
+        }
         List<Book> allBooks = bookService.getAllBooks();
         return new ResponseEntity<>(allBooks, HttpStatus.OK);
     }
+
+
 
 //    SHOW
     @GetMapping(value = "/{id")
