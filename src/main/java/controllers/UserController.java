@@ -18,12 +18,12 @@ public class UserController {
     UserService userService;
 
     @PostMapping
-    public ResponseEntity<User> addUser(String name){
+    public ResponseEntity<User> addUser(@RequestBody String name){
         User user = userService.addUser(name);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}") //localhost8080:user/1
     public ResponseEntity<List<Bookshelf>> getBookshelfByUserId(@PathVariable Long id){
         List<Bookshelf> bookshelves = userService.getBookshelfByUserId(id);
         return new ResponseEntity<>(bookshelves, HttpStatus.FOUND);

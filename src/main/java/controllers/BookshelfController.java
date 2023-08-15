@@ -18,13 +18,13 @@ public class BookshelfController {
     BookshelfService bookshelfService;
 
     @PostMapping
-    public ResponseEntity<Bookshelf> addToBookshelf(BookshelfDTO bookshelfDTO){
+    public ResponseEntity<Bookshelf> addToBookshelf(@RequestBody BookshelfDTO bookshelfDTO){
         Bookshelf bookshelf = bookshelfService.addToBookshelf(bookshelfDTO);
         return new ResponseEntity<>(bookshelf, HttpStatus.CREATED);
     }
 
     @PatchMapping(value = "/{id}")
-    public ResponseEntity<Bookshelf> updateBookshelf(BookshelfDTO bookshelfDTO, @PathVariable Long id){
+    public ResponseEntity<Bookshelf> updateBookshelf(@RequestBody BookshelfDTO bookshelfDTO, @PathVariable Long id){
         Bookshelf bookshelf = bookshelfService.updateBookshelf(bookshelfDTO, id);
         return new ResponseEntity<>(bookshelf, HttpStatus.OK);
     }
