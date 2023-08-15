@@ -24,6 +24,7 @@ public class BookController {
 //    * GET / books?author_id = 1
 //    * GET / books?year = 1991
 //    * GET / books?length > 200
+
 //    INDEX
 //    @GetMapping
 //    public ResponseEntity<List<Book>> getALlBooksAndGenres(@RequestParam(required = false, name ="genre") int genreId,
@@ -39,6 +40,13 @@ public class BookController {
 //        }
 //        return new ResponseEntity<>(filteredBooks, HttpStatus.OK);
 //    }
+
+//    INDEX
+    @GetMapping
+    public ResponseEntity<List<Book>> getALlBooksAndGenres(){
+            List<Book> allBooks = bookService.getAllBooks();
+            return new ResponseEntity<>(allBooks, HttpStatus.OK);
+        }
 
 
 

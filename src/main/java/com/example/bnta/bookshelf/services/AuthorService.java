@@ -36,11 +36,11 @@ public class AuthorService {
         Author authorToUpdate = authorRepository.findById(id).get();
         authorToUpdate.setName(authorDTO.getName());
 
-        for(Long bookId : authorDTO.getBookIds()){
-            Book book = bookRepository.findById(bookId).get();
-            book.setAuthor(authorToUpdate);
-            bookRepository.save(book);
-        }
+//        for(Long bookId : authorDTO.getBookIds()){
+//            Book book = bookRepository.findById(bookId).get();
+//            book.setAuthor(authorToUpdate);
+//            bookRepository.save(book);
+//        }
 
         authorRepository.save(authorToUpdate);
         return authorToUpdate;
