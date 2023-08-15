@@ -30,17 +30,26 @@ public class BookshelfService {
         );
         bookshelfRepository.save(bookshelf);
         return bookshelf;
-
     }
 
+//    public Bookshelf updateBookshelf(BookshelfDTO bookshelfDTO, Long id){
+//        Status status = Status.valueOf(bookshelfDTO.getStatus().toUpperCase());
+//        Bookshelf bookshelf = new Bookshelf(
+//        userRepository.findById(bookshelfDTO.getUserId()).get(),
+//                bookRepository.findById(bookshelfDTO.getBookId()).get(),
+//                status);
+//        bookshelfRepository.save(bookshelf);
+//        return bookshelf;
+//    }
+
     public Bookshelf updateBookshelf(BookshelfDTO bookshelfDTO, Long id){
+        Bookshelf bookshelfToUpdate = bookshelfRepository.findById(id).get();
+        bookshelfToUpdate.setBook(bookRepository.findById(bookshelfDTO.getBookId()).get());
+        bookshelfToUpdate.setUser(userRepository.findById(bookshelfDTO.getUserId()).get());
         Status status = Status.valueOf(bookshelfDTO.getStatus().toUpperCase());
-        Bookshelf bookshelf = new Bookshelf(
-        userRepository.findById(bookshelfDTO.getUserId()).get(),
-                bookRepository.findById(bookshelfDTO.getBookId()).get(),
-                status);
-        bookshelfRepository.save(bookshelf);
-        return bookshelf;
+        bookshelfToUpdate.setStatus(status);
+        bookshelfRepository.save(bookshelfToUpdate);
+        return bookshelfToUpdate;
     }
 
     public Bookshelf deleteBookFromBookshelf(Long id){

@@ -17,17 +17,29 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    //SHOW
+
+    @GetMapping
+    public ResponseEntity<List<User>> getAllUsers(){
+        List<User> users = userService.getAllUsers();
+        return new ResponseEntity<>(users, HttpStatus.FOUND);
+    }
+
+    @GetMapping(value = "/{id}") //localhost8080:users/1/bookshelf
+    public ResponseEntity<User> getUserById(@PathVariable Long id){
+        User user = userService.getUserById(id);
+        return new ResponseEntity<>(user, HttpStatus.FOUND);
+    }
+
+    //CREATE
+
     @PostMapping
     public ResponseEntity<User> addUser(@RequestBody String name){
         User user = userService.addUser(name);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/{id}/bookshelf") //localhost8080:users/1/bookshelf
-    public ResponseEntity<List<Bookshelf>> getBookshelfByUserId(@PathVariable Long id){
-        List<Bookshelf> bookshelves = userService.getBookshelfByUserId(id);
-        return new ResponseEntity<>(bookshelves, HttpStatus.FOUND);
-    }
+    //DELETE
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<User> deleteUser(@PathVariable Long id){

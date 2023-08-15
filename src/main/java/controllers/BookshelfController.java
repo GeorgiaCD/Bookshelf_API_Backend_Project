@@ -23,10 +23,16 @@ public class BookshelfController {
         return new ResponseEntity<>(bookshelf, HttpStatus.CREATED);
     }
 
-    @PatchMapping(value = "/{id}") //localhost8080:
+//    @PatchMapping(value = "/{id}") //localhost8080:bookshelf/{id}
+//    public ResponseEntity<Bookshelf> updateBookshelf(@RequestBody BookshelfDTO bookshelfDTO, @PathVariable Long id){
+//        Bookshelf bookshelf = bookshelfService.updateBookshelf(bookshelfDTO, id);
+//        return new ResponseEntity<>(bookshelf, HttpStatus.OK);
+//    }
+
+    @PutMapping(value = "/{id}")
     public ResponseEntity<Bookshelf> updateBookshelf(@RequestBody BookshelfDTO bookshelfDTO, @PathVariable Long id){
-        Bookshelf bookshelf = bookshelfService.updateBookshelf(bookshelfDTO, id);
-        return new ResponseEntity<>(bookshelf, HttpStatus.OK);
+        Bookshelf updatedBookshelf = bookshelfService.updateBookshelf(bookshelfDTO, id);
+        return new ResponseEntity<>(updatedBookshelf, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")

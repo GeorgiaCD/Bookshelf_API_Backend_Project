@@ -22,9 +22,13 @@ public class UserService {
         return user;
     }
 
-    public List<Bookshelf> getBookshelfByUserId(Long id){
-        List<Bookshelf> bookshelves = userRepository.findById(id).get().getBookshelf();
-        return bookshelves;
+    public User getUserById(Long id){
+        User user = userRepository.findById(id).get();
+        return user;
+    }
+
+    public List<User> getAllUsers(){
+        return userRepository.findAll();
     }
 
     public User deleteUser(Long id){
