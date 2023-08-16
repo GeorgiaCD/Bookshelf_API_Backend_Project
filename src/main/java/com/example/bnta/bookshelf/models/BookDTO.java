@@ -8,14 +8,14 @@ public class BookDTO {
     private Long authorId;
     private Genre genre;
     private List<Long> bookshelfIds;
-    private int yearPublished;
+    private int year;
     private int numberOfPages;
 
-    public BookDTO(String title, Long authorId, Genre genre, int yearPublished, int numberOfPages) {
+    public BookDTO(String title, Long authorId, Genre genre, int year, int numberOfPages) {
         this.title = title;
         this.authorId = authorId;
         this.genre = genre;
-        this.yearPublished = yearPublished;
+        this.year = year;
         this.numberOfPages = numberOfPages;
     }
 
@@ -54,12 +54,12 @@ public class BookDTO {
         this.bookshelfIds = bookshelfIds;
     }
 
-    public int getYearPublished() {
-        return yearPublished;
+    public int getYear() {
+        return year;
     }
 
-    public void setYearPublished(int yearPublished) {
-        this.yearPublished = yearPublished;
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public int getNumberOfPages() {

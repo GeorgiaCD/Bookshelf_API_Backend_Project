@@ -42,7 +42,7 @@ public class BookService {
         Book newBook = new Book(bookDTO.getTitle(),
                                 authorService.getAuthorById(bookDTO.getAuthorId()), //method to get author from id
                                 bookDTO.getGenre(),
-                                bookDTO.getYearPublished(),
+                                bookDTO.getYear(),
                                 bookDTO.getNumberOfPages());
         bookRepository.save(newBook);
     }
@@ -53,7 +53,7 @@ public class BookService {
         bookToUpdate.setTitle(bookDTO.getTitle());
         bookToUpdate.setAuthor(authorService.getAuthorById(bookDTO.getAuthorId()));
         bookToUpdate.setGenre(bookDTO.getGenre());
-        bookToUpdate.setYear(bookDTO.getYearPublished());
+        bookToUpdate.setYear(bookDTO.getYear());
         bookToUpdate.setNumberOfPages(bookDTO.getNumberOfPages());
         bookToUpdate.setBookshelf(new ArrayList<>());
 

@@ -4,11 +4,11 @@ public class BookshelfDTO {
 
     private Long userId;
     private Long bookId;
-    private String status;
+    private Status status;
     private int rating;
 
     public
-    BookshelfDTO(Long userId, Long bookId, String status){
+    BookshelfDTO(Long userId, Long bookId, Status status){
         this.userId = userId;
         this.bookId = bookId;
         this.status = status;
@@ -37,12 +37,12 @@ public class BookshelfDTO {
     }
 
     public
-    String getStatus(){
+    Status getStatus(){
         return status;
     }
 
     public
-    void setStatus(String status){
+    void setStatus(Status status){
         this.status = status;
     }
 
