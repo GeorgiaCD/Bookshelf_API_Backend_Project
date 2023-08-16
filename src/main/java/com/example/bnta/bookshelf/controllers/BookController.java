@@ -1,5 +1,6 @@
 package com.example.bnta.bookshelf.controllers;
 
+
 import com.example.bnta.bookshelf.models.Book;
 import com.example.bnta.bookshelf.models.BookDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,42 +42,40 @@ public class BookController {
 //        return new ResponseEntity<>(filteredBooks, HttpStatus.OK);
 //    }
 
-//    INDEX
+    //    INDEX
     @GetMapping
-    public ResponseEntity<List<Book>> getALlBooksAndGenres(){
-            List<Book> allBooks = bookService.getAllBooks();
-            return new ResponseEntity<>(allBooks, HttpStatus.OK);
-        }
+    public ResponseEntity<List<Book>> getALlBooksAndGenres() {
+        List<Book> allBooks = bookService.getAllBooks();
+        return new ResponseEntity<>(allBooks, HttpStatus.OK);
+    }
 
 
-
-//    SHOW
+    //    SHOW
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Optional<Book>> getBook(@PathVariable Long id){
+    public ResponseEntity<Optional<Book>> getBook(@PathVariable Long id) {
         Book foundBook = bookService.findBookById(id);
         return new ResponseEntity(foundBook, HttpStatus.OK);
     }
 
-//    CREATE
+    //    CREATE
     @PostMapping
-    public ResponseEntity<List<Book>> addBook(@RequestBody BookDTO bookDTO){
+    public ResponseEntity<List<Book>> addBook(@RequestBody BookDTO bookDTO) {
         bookService.saveBook(bookDTO);
         return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.CREATED);
     }
 
-//    UPDATE
+    //    UPDATE
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Book> updateBook(@RequestBody BookDTO bookDTO, @PathVariable Long id){
+    public ResponseEntity<Book> updateBook(@RequestBody BookDTO bookDTO, @PathVariable Long id) {
         Book updatedBook = bookService.updateBook(bookDTO, id);
         return new ResponseEntity<>(updatedBook, HttpStatus.OK);
     }
 
     //    DELETE
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Long> deleteBook(@PathVariable Long id){
+    public ResponseEntity<Long> deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
-
 
 }
