@@ -17,5 +17,11 @@ public enum Genre { // F & G
         TECHNOLOGY,
         PSYCHOLOGY,
         PHILOSOPHY,
-        TRAVEL;
+        TRAVEL,
+        CONTEMPORARY,
+        POETRY,
+        SCIENCE_FICTION,
+        LITERARY_FICTION,
+        HISTORICAL_FICTION,
+        DYSTOPIAN;
 }
