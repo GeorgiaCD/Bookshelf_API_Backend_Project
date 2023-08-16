@@ -25,8 +25,8 @@ public class BookshelfService {
     Bookshelf addToBookshelf(BookshelfDTO bookshelfDTO){
         Bookshelf bookshelf = new Bookshelf(
                 userRepository.findById(bookshelfDTO.getUserId()).get(),
-                bookRepository.findById(bookshelfDTO.getBookId()).get(),
-                Status.WANT_TO_READ
+                bookRepository.findById(bookshelfDTO.getBookId()).get()
+//                Status.WANT_TO_READ
         );
         bookshelfRepository.save(bookshelf);
         return bookshelf;

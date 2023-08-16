@@ -1,10 +1,9 @@
 package com.example.bnta.bookshelf.components;
 
-import com.example.bnta.bookshelf.models.Author;
-import com.example.bnta.bookshelf.models.Genre;
-import com.example.bnta.bookshelf.models.Book;
-import com.example.bnta.bookshelf.models.User;
+import com.example.bnta.bookshelf.models.*;
 import com.example.bnta.bookshelf.repositories.AuthorRepository;
+import com.example.bnta.bookshelf.repositories.BookRepository;
+import com.example.bnta.bookshelf.repositories.BookshelfRepository;
 import com.example.bnta.bookshelf.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -15,6 +14,7 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 
 import static com.example.bnta.bookshelf.models.Genre.*;
+import static com.fasterxml.jackson.databind.cfg.CoercionInputShape.Array;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -25,13 +25,18 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    BookRepository bookRepository;
+
+    @Autowired
+    BookshelfRepository bookshelfRepository;
+
 
     public DataLoader(){
     }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-
 
         Author author1 = new Author("Emily Henry");
         Author author2 = new Author("Sally Rooney");
@@ -79,6 +84,7 @@ public class DataLoader implements ApplicationRunner {
         Book bookLT1 = new Book("War and Peace", author13, HISTORICAL_FICTION, 1869, 1225);
         Book bookEHW1 = new Book("The Old Man and the Sea", author14, HISTORICAL_FICTION, 1952, 127);
         Book bookVW1 = new Book("Mrs Dalloway", author15, HISTORICAL_FICTION, 1925, 176);
+        Book bookSR1 = new Book("Normal People", author2, Genre.CONTEMPORARY, 2018, 273);
         Book bookSR2 = new Book("Conversations with Friends", author2, Genre.CONTEMPORARY, 2017, 304);
         Book bookSR3 = new Book("Beautiful World, Where Are You", author2, Genre.CONTEMPORARY, 2021, 368);
         Book bookSR4 = new Book("Color and Light", author2, Genre.POETRY, 2022, 192);
@@ -89,11 +95,36 @@ public class DataLoader implements ApplicationRunner {
         Book bookKI3 = new Book("Klara and the Sun", author9, Genre.SCIENCE_FICTION, 2021, 320);
         Book bookKI4 = new Book("An Artist of the Floating World", author9, Genre.HISTORICAL_FICTION, 1986, 206);
         Book bookEH1 = new Book("Beach Read", author1, Genre.CONTEMPORARY, 2020, 384);
-        Book bookSR1 = new Book("Normal People", author2, Genre.CONTEMPORARY, 2018, 273);
         Book bookGO1 = new Book("1984", author7, Genre.DYSTOPIAN, 1949, 328);
         Book bookKI1 = new Book("Never Let Me Go", author9, Genre.SCIENCE_FICTION, 2005, 288);
 
-
+        bookRepository.saveAll(Arrays.asList(
+                bookSK1,
+                bookSK2,
+                bookJKR1,
+                bookJKR2,
+                bookHM1,
+                bookAC1,
+                bookJA1,
+                bookGGM1,
+                bookTM1,
+                bookFSF1,
+                bookLT1,
+                bookEHW1,
+                bookVW1,
+                bookSR2,
+                bookSR3,
+                bookEH2,
+                bookEH3,
+                bookEH4,
+                bookKI2,
+                bookKI3,
+                bookKI4,
+                bookEH1,
+                bookSR1,
+                bookGO1,
+                bookKI1
+        ));
 
 
         User user1 = new User("Kevin");
@@ -121,6 +152,49 @@ public class DataLoader implements ApplicationRunner {
         ));
 
 
+        Bookshelf bookshelf1 = new Bookshelf(user1, bookSR1);
+        Bookshelf bookshelf2 = new Bookshelf(user1, bookKI4);
+        Bookshelf bookshelf3 = new Bookshelf(user1, bookEH1);
+        Bookshelf bookshelf4 = new Bookshelf(user2, bookKI3);
+        Bookshelf bookshelf5 = new Bookshelf(user2, bookKI4);
+        Bookshelf bookshelf6 = new Bookshelf(user3, bookKI2);
+        Bookshelf bookshelf7 = new Bookshelf(user4, bookTM1);
+        Bookshelf bookshelf8 = new Bookshelf(user4, bookFSF1);
+        Bookshelf bookshelf9 = new Bookshelf(user5, bookEHW1);
+        Bookshelf bookshelf10 = new Bookshelf(user6, bookKI2);
+        Bookshelf bookshelf11 = new Bookshelf(user7, bookJKR2);
+        Bookshelf bookshelf12 = new Bookshelf(user8, bookJKR2);
+        Bookshelf bookshelf13 = new Bookshelf(user9, bookSK2);
+        Bookshelf bookshelf14 = new Bookshelf(user10, bookSK1);
+        Bookshelf bookshelf15 = new Bookshelf(user5, bookKI2);
+        Bookshelf bookshelf16 = new Bookshelf(user5, bookHM1);
+        Bookshelf bookshelf17 = new Bookshelf(user7, bookKI2);
+        Bookshelf bookshelf18 = new Bookshelf(user6, bookAC1);
+        Bookshelf bookshelf19 = new Bookshelf(user7, bookKI2);
+        Bookshelf bookshelf20 = new Bookshelf(user5, bookGO1);
+
+        bookshelfRepository.saveAll(Arrays.asList(
+                bookshelf1,
+                bookshelf2,
+                bookshelf3,
+                bookshelf4,
+                bookshelf5,
+                bookshelf6,
+                bookshelf7,
+                bookshelf8,
+                bookshelf9,
+                bookshelf10,
+                bookshelf11,
+                bookshelf12,
+                bookshelf13,
+                bookshelf14,
+                bookshelf15,
+                bookshelf16,
+                bookshelf17,
+                bookshelf18,
+                bookshelf19,
+                bookshelf20
+        ));
 
 
     }

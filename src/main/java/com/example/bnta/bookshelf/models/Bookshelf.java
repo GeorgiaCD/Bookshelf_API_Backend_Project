@@ -27,10 +27,10 @@ public class Bookshelf { // K & R
     private int rating;
 
     public
-    Bookshelf(User user, Book book, Status status){
+    Bookshelf(User user, Book book){
         this.user = user;
         this.book = book;
-        this.status = status;
+//        this.status = status;
     }
 
     public Bookshelf(){}
