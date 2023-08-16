@@ -18,7 +18,7 @@ public class BookshelfController {
     @PostMapping
     public ResponseEntity<Bookshelf> addToBookshelf(@RequestBody BookshelfDTO bookshelfDTO){
         Bookshelf bookshelf = bookshelfService.addToBookshelf(bookshelfDTO);
-        return new ResponseEntity<>(bookshelf, HttpStatus.CREATED);
+        return new ResponseEntity<>(null, HttpStatus.CREATED);
     }
 
 //    @PatchMapping(value = "/{id}") //localhost8080:bookshelf/{id}
