@@ -20,8 +20,6 @@ public enum Genre { // F & G
         TRAVEL,
         CONTEMPORARY,
         POETRY,
-        SCIENCE_FICTION,
-        LITERARY_FICTION,
-        HISTORICAL_FICTION,
+        LITERARY,
         DYSTOPIAN;
 }

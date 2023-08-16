@@ -79,24 +79,24 @@ public class DataLoader implements ApplicationRunner {
         Book bookAC1 = new Book("Murder on the Orient Express", author6, THRILLER, 1934, 256);
         Book bookJA1 = new Book("Pride and Prejudice", author8, ROMANCE, 1813, 304);
         Book bookGGM1 = new Book("One Hundred Years of Solitude", author10, FANTASY, 1970, 417);
-        Book bookTM1 = new Book("Paradise", author11, HISTORICAL_FICTION, 1998, 318);
-        Book bookFSF1 = new Book("The Great Gatsby", author12, HISTORICAL_FICTION, 1925, 208);
-        Book bookLT1 = new Book("War and Peace", author13, HISTORICAL_FICTION, 1869, 1225);
-        Book bookEHW1 = new Book("The Old Man and the Sea", author14, HISTORICAL_FICTION, 1952, 127);
-        Book bookVW1 = new Book("Mrs Dalloway", author15, HISTORICAL_FICTION, 1925, 176);
+        Book bookTM1 = new Book("Paradise", author11, TRAVEL, 1998, 318);
+        Book bookFSF1 = new Book("The Great Gatsby", author12, BUSINESS, 1925, 208);
+        Book bookLT1 = new Book("War and Peace", author13, COMEDY, 1869, 1225);
+        Book bookEHW1 = new Book("The Old Man and the Sea", author14, MEMOIR, 1952, 127);
+        Book bookVW1 = new Book("Mrs Dalloway", author15, HISTORY, 1925, 176);
         Book bookSR1 = new Book("Normal People", author2, Genre.CONTEMPORARY, 2018, 273);
         Book bookSR2 = new Book("Conversations with Friends", author2, Genre.CONTEMPORARY, 2017, 304);
         Book bookSR3 = new Book("Beautiful World, Where Are You", author2, Genre.CONTEMPORARY, 2021, 368);
         Book bookSR4 = new Book("Color and Light", author2, Genre.POETRY, 2022, 192);
         Book bookEH2 = new Book("People We Meet on Vacation", author1, ROMANCE, 2021, 384);
         Book bookEH3 = new Book("A Million Junes", author1, FANTASY, 2017, 350);
-        Book bookEH4 = new Book("When the Sky Fell on Splendor", author1, Genre.SCIENCE_FICTION, 2019, 336);
-        Book bookKI2 = new Book("The Remains of the Day", author9, Genre.LITERARY_FICTION, 1989, 258);
-        Book bookKI3 = new Book("Klara and the Sun", author9, Genre.SCIENCE_FICTION, 2021, 320);
-        Book bookKI4 = new Book("An Artist of the Floating World", author9, Genre.HISTORICAL_FICTION, 1986, 206);
-        Book bookEH1 = new Book("Beach Read", author1, Genre.CONTEMPORARY, 2020, 384);
+        Book bookEH4 = new Book("When the Sky Fell on Splendor", author1, Genre.SCIENCE, 2019, 336);
+        Book bookKI2 = new Book("The Remains of the Day", author9, Genre.LITERARY, 1989, 258);
+        Book bookKI3 = new Book("Klara and the Sun", author9, Genre.SCIENCE, 2021, 320);
+        Book bookKI4 = new Book("An Artist of the Floating World", author9, Genre.HISTORY, 1986, 206);
+        Book bookEH1 = new Book("Beach Read", author1, Genre.TECHNOLOGY, 2020, 384);
         Book bookGO1 = new Book("1984", author7, Genre.DYSTOPIAN, 1949, 328);
-        Book bookKI1 = new Book("Never Let Me Go", author9, Genre.SCIENCE_FICTION, 2005, 288);
+        Book bookKI1 = new Book("Never Let Me Go", author9, Genre.SCIENCE, 2005, 288);
 
         bookRepository.saveAll(Arrays.asList(
                 bookSK1,
