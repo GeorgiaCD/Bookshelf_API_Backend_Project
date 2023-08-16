@@ -5,6 +5,7 @@ import com.example.bnta.bookshelf.models.Genre;
 import com.example.bnta.bookshelf.models.Book;
 import com.example.bnta.bookshelf.models.User;
 import com.example.bnta.bookshelf.repositories.AuthorRepository;
+import com.example.bnta.bookshelf.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -20,6 +21,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     AuthorRepository authorRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
 
     public DataLoader(){
@@ -75,7 +79,6 @@ public class DataLoader implements ApplicationRunner {
         Book bookLT1 = new Book("War and Peace", author13, HISTORICAL_FICTION, 1869, 1225);
         Book bookEHW1 = new Book("The Old Man and the Sea", author14, HISTORICAL_FICTION, 1952, 127);
         Book bookVW1 = new Book("Mrs Dalloway", author15, HISTORICAL_FICTION, 1925, 176);
-
         Book bookSR2 = new Book("Conversations with Friends", author2, Genre.CONTEMPORARY, 2017, 304);
         Book bookSR3 = new Book("Beautiful World, Where Are You", author2, Genre.CONTEMPORARY, 2021, 368);
         Book bookSR4 = new Book("Color and Light", author2, Genre.POETRY, 2022, 192);
@@ -91,7 +94,33 @@ public class DataLoader implements ApplicationRunner {
         Book bookKI1 = new Book("Never Let Me Go", author9, Genre.SCIENCE_FICTION, 2005, 288);
 
 
-       
+
+
+        User user1 = new User("Kevin");
+        User user2 = new User("Georgia");
+        User user3 = new User("Rohaib");
+        User user4 = new User("Francesca");
+        User user5 = new User("Zsolt");
+        User user6 = new User("Colin");
+        User user7 = new User("Anna");
+        User user8 = new User("Phil");
+        User user9 = new User("Richard");
+        User user10 = new User("Ed");
+
+        userRepository.saveAll(Arrays.asList(
+                user1,
+                user2,
+                user3,
+                user4,
+                user5,
+                user6,
+                user7,
+                user8,
+                user9,
+                user10
+        ));
+
+
 
 
     }
