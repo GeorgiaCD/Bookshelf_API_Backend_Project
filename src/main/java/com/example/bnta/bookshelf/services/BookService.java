@@ -55,7 +55,7 @@ public class BookService {
         bookToUpdate.setGenre(bookDTO.getGenre());
         bookToUpdate.setYear(bookDTO.getYear());
         bookToUpdate.setNumberOfPages(bookDTO.getNumberOfPages());
-        bookToUpdate.setBookshelf(new ArrayList<>());
+        bookToUpdate.setBookshelves(new ArrayList<>());
 
         for(Long bookshelfId : bookDTO.getBookshelfIds()){
             Bookshelf bookshelf = bookshelfRepository.findById(bookshelfId).get();

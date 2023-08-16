@@ -96,11 +96,11 @@ public class Book { // F & G
         this.numberOfPages = numberOfPages;
     }
 
-    public List<Bookshelf> getBookshelf() {
+    public List<Bookshelf> getBookshelves() {
         return bookshelves;
     }
 
-    public void setBookshelf(List<Bookshelf> bookshelves) {
+    public void setBookshelves(List<Bookshelf> bookshelves) {
         this.bookshelves = bookshelves;
     }
 

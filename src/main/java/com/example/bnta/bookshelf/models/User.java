@@ -1,5 +1,6 @@
 package com.example.bnta.bookshelf.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -17,7 +18,7 @@ public class User { // K & R
     private String userName;
 
     @OneToMany(mappedBy = "user")
-    @JsonIgnoreProperties({"user","book"})
+//    @JsonIgnoreProperties({"user","book"})
     private List<Bookshelf> bookshelves; //rename for clarification
 
     public User(String userName) {
@@ -45,11 +46,11 @@ public class User { // K & R
         this.userName = userName;
     }
 
-    public List<Bookshelf> getBookshelf() {
+    public List<Bookshelf> getBookshelves() {
         return bookshelves;
     }
 
-    public void setBookshelf(List<Bookshelf> bookshelves) {
+    public void setBookshelves(List<Bookshelf> bookshelves) {
         this.bookshelves = bookshelves;
     }
 
