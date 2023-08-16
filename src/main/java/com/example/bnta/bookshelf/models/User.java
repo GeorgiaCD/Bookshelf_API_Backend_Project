@@ -1,7 +1,8 @@
-package models;
+package com.example.bnta.bookshelf.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "users")
@@ -17,9 +18,9 @@ public class User { // K & R
     @OneToMany(mappedBy = "user")
     private List<Bookshelf> bookshelves;
 
-    public User(String userName, List<Bookshelf> bookshelves) {
+    public User(String userName) {
         this.userName = userName;
-        this.bookshelves = bookshelves;
+        this.bookshelves = new ArrayList<>();
     }
 
     public User(){
@@ -48,5 +49,10 @@ public class User { // K & R
 
     public void setBookshelf(List<Bookshelf> bookshelves) {
         this.bookshelves = bookshelves;
+    }
+
+    public
+    void addBookshelf(Bookshelf bookshelf){
+        this.bookshelves.add(bookshelf);
     }
 }

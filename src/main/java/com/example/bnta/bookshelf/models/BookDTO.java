@@ -1,4 +1,4 @@
-package models;
+package com.example.bnta.bookshelf.models;
 
 import java.util.List;
 
