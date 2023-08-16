@@ -32,7 +32,7 @@ public class Book { // F & G
     private int numberOfPages;
 
     @OneToMany(mappedBy = "book")
-    @JsonIgnoreProperties({"books"})
+    @JsonIgnoreProperties({"book","user"})
     private List<Bookshelf> bookshelves;
 
     public Book(String title, Author author, Genre genre, int year, int numberOfPages){

@@ -19,8 +19,7 @@ public class UserService {
     @Autowired
     BookshelfRepository bookshelfRepository;
 
-    public User addUser(String name){
-        User user = new User(name);
+    public User addUser(User user){
         userRepository.save(user);
         return user;
     }

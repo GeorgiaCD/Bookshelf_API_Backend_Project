@@ -4,14 +4,13 @@ public class BookshelfDTO {
 
     private Long userId;
     private Long bookId;
-    private Status status;
-    private int rating;
+//    private Status status;
+//    private int rating;
 
     public
-    BookshelfDTO(Long userId, Long bookId, Status status){
+    BookshelfDTO(Long userId, Long bookId){
         this.userId = userId;
         this.bookId = bookId;
-        this.status = status;
     }
 
     public BookshelfDTO(){}
@@ -36,23 +35,13 @@ public class BookshelfDTO {
         this.bookId = bookId;
     }
 
-    public
-    Status getStatus(){
-        return status;
-    }
-
-    public
-    void setStatus(Status status){
-        this.status = status;
-    }
-
-    public
-    int getRating(){
-        return rating;
-    }
-
-    public
-    void setRating(int rating){
-        this.rating = rating;
-    }
+//    public
+//    int getRating(){
+//        return rating;
+//    }
+//
+//    public
+//    void setRating(int rating){
+//        this.rating = rating;
+//    }
 }

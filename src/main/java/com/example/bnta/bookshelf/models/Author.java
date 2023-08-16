@@ -19,7 +19,7 @@ public class Author { // F & G
     private String name;
 
     @OneToMany(mappedBy = ("author"))
-    @JsonIgnoreProperties({"authors"})
+    @JsonIgnoreProperties({"author","bookshelves"})
     private List<Book> books;
 
     public Author(String name) {

@@ -42,9 +42,9 @@ public class UserController {
     //CREATE
 
     @PostMapping
-    public ResponseEntity<User> addUser(@RequestBody String name){
-        User user = userService.addUser(name);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+    public ResponseEntity<User> addUser(@RequestBody User user){
+        User newUser = userService.addUser(user);
+        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 
     //DELETE

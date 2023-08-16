@@ -11,13 +11,13 @@ public class Bookshelf { // K & R
     private Long id;
 
     @ManyToOne
-    @JoinColumn (name = "user_id")
-    @JsonIgnoreProperties ({"bookshelves"})
+    @JoinColumn(name = "user_id")
+    @JsonIgnoreProperties({"bookshelves"})
     private User user;
 
     @ManyToOne
-    @JoinColumn (name = "book_id")
-    @JsonIgnoreProperties ({"bookshelves"})
+    @JoinColumn(name = "book_id")
+    @JsonIgnoreProperties({"bookshelves","author"})
     private Book book;
 
     @Column
