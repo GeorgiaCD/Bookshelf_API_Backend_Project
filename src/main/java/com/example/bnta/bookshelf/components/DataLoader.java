@@ -79,7 +79,7 @@ public class DataLoader implements ApplicationRunner {
         Book bookAC1 = new Book("Murder on the Orient Express", author6, THRILLER, 1934, 256);
         Book bookJA1 = new Book("Pride and Prejudice", author8, ROMANCE, 1813, 304);
         Book bookGGM1 = new Book("One Hundred Years of Solitude", author10, FANTASY, 1970, 417);
-        Book bookTM1 = new Book("Paradise", author11, TRAVEL, 1998, 318);
+        Book bookTM1 = new Book("Paradise", author11, Genre.TRAVEL, 1998, 318);
         Book bookFSF1 = new Book("The Great Gatsby", author12, BUSINESS, 1925, 208);
         Book bookLT1 = new Book("War and Peace", author13, COMEDY, 1869, 1225);
         Book bookEHW1 = new Book("The Old Man and the Sea", author14, MEMOIR, 1952, 127);
