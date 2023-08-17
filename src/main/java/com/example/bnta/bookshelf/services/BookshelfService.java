@@ -89,4 +89,19 @@ public class BookshelfService {
         bookshelfRepository.save(bookshelf);
         return bookshelf;
     }
+
+//    public List<Bookshelf> getByStatus(Status status){
+//        return bookshelfRepository.findByStatus(status);
+//    }
+
+    public List<Bookshelf> getStatusByUser(Status status, Long userId){
+        List<Bookshelf> bookshelf = bookshelfRepository.findByUserId(userId);
+        List<Bookshelf> filteredBookshelf = new ArrayList<>();
+        for(Bookshelf filterBookshelf : bookshelf){
+            if(filterBookshelf.getStatus() == status){
+                filteredBookshelf.add(filterBookshelf);
+            }
+        }
+        return filteredBookshelf;
+    }
 }
