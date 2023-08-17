@@ -3,6 +3,8 @@ package com.example.bnta.bookshelf.controllers;
 
 import com.example.bnta.bookshelf.models.Book;
 import com.example.bnta.bookshelf.models.BookDTO;
+import com.example.bnta.bookshelf.models.Genre;
+import org.apache.tomcat.util.http.parser.HttpParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,14 +28,30 @@ public class BookController {
 //    * GET / books?year = 1991
 //    * GET / books?length > 200
 
-    INDEX
+//    INDEX
     @GetMapping
-    public ResponseEntity<List<Book>> getALlBooksAndGenres(@RequestParam(required = false, name ="genre") int genreId,
+    public ResponseEntity<List<Book>> getAllFilteredBooks(@RequestParam(required = false, name ="genre") Genre genre,
                                                            @RequestParam(required = false, name ="authorId") Long authorId,
                                                            @RequestParam(required = false, name ="year") int year,
                                                            @RequestParam(required = false, name ="length") int length)
     {
-        List<Book> filteredBooks = bookService.getFilteredBooks(genreId, authorId, year, length);
+        if(genre != null){
+            List<Book> booksByGenre = bookService.getByGenre(genre);
+            return new ResponseEntity<>(booksByGenre, HttpStatus.OK);
+        }
+        if(authorId != null){
+            List<Book> bookByAuthor = bookService.getByAuthorId(authorId);
+            return new ResponseEntity<>(bookByAuthor, HttpStatus.OK);
+        }
+        if(year != null){
+            List<Book> booksByYear = bookService.getByYear(year);
+            return new ResponseEntity<>(booksByYear, HttpStatus.OK);
+        }
+        if(length != null){
+            List<Book> booksByLength = bookService.getByLength(length);
+            return new ResponseEntity<>(booksByLength, HttpStatus.OK);
+        }
+
 
         if(filteredBooks.isEmpty()){
             List<Book> allBooks = bookService.getAllBooks();
