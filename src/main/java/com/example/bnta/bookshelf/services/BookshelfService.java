@@ -7,6 +7,7 @@ import com.example.bnta.bookshelf.repositories.BookRepository;
 import com.example.bnta.bookshelf.repositories.BookshelfRepository;
 import com.example.bnta.bookshelf.repositories.UserRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -65,8 +66,20 @@ public class BookshelfService {
         return bookshelf;
     }
 
+//    public List<UserBookshelfDTO> findBookshelfById(Long userId){
+//        List<Bookshelf> bookshelf = bookshelfRepository.findByUserId(userId);
+//        List<UserBookshelfDTO> simpleBookshelf = new ArrayList<>();
+//        UserBookshelfDTO userBookshelf;
+//        for(Bookshelf currentBookshelf : bookshelf){
+//            userBookshelf = new UserBookshelfDTO(currentBookshelf.getBook(),currentBookshelf.getStatus());
+//            simpleBookshelf.add(userBookshelf);
+//        }
+//        return simpleBookshelf;
+//    }
+
     public List<Bookshelf> findBookshelfById(Long userId){
-        return bookshelfRepository.findByUserId(userId);
+        List<Bookshelf> bookshelf = bookshelfRepository.findByUserId(userId);
+        return bookshelf;
     }
 
 
