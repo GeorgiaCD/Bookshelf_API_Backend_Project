@@ -1,14 +1,13 @@
 package com.example.bnta.bookshelf.controllers;
 
-import com.example.bnta.bookshelf.models.Bookshelf;
-import com.example.bnta.bookshelf.models.BookshelfDTO;
-import com.example.bnta.bookshelf.models.Status;
-import com.example.bnta.bookshelf.models.StatusDTO;
+import com.example.bnta.bookshelf.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.bnta.bookshelf.services.BookshelfService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "bookshelf")
@@ -46,6 +45,14 @@ public class BookshelfController {
         Bookshelf bookshelf = bookshelfService.deleteBookFromBookshelf(id);
         return new ResponseEntity<>(bookshelf, HttpStatus.GONE);
     }
+
+    @GetMapping
+    public ResponseEntity<List<Bookshelf>> findBookshelfByUserId(@RequestParam Long userId){
+        List<Bookshelf> bookshelves = bookshelfService.findBookshelfById(userId);
+        return new ResponseEntity<>(bookshelves, HttpStatus.FOUND);
+    }
+
+
 
 
 

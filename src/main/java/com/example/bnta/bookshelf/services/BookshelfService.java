@@ -7,6 +7,8 @@ import com.example.bnta.bookshelf.repositories.BookRepository;
 import com.example.bnta.bookshelf.repositories.BookshelfRepository;
 import com.example.bnta.bookshelf.repositories.UserRepository;
 
+import java.util.List;
+
 @Service
 public class BookshelfService {
 
@@ -62,5 +64,10 @@ public class BookshelfService {
         bookshelfRepository.deleteById(id);
         return bookshelf;
     }
+
+    public List<Bookshelf> findBookshelfById(Long userId){
+        return bookshelfRepository.findByUserId(userId);
+    }
+
 
 }
