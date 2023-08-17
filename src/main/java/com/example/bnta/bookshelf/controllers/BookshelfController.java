@@ -2,6 +2,8 @@ package com.example.bnta.bookshelf.controllers;
 
 import com.example.bnta.bookshelf.models.Bookshelf;
 import com.example.bnta.bookshelf.models.BookshelfDTO;
+import com.example.bnta.bookshelf.models.Status;
+import com.example.bnta.bookshelf.models.StatusDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +20,7 @@ public class BookshelfController {
     @PostMapping
     public ResponseEntity<Bookshelf> addToBookshelf(@RequestBody BookshelfDTO bookshelfDTO){
         Bookshelf bookshelf = bookshelfService.addToBookshelf(bookshelfDTO);
-        return new ResponseEntity<>(null, HttpStatus.CREATED);
+        return new ResponseEntity<>(bookshelf, HttpStatus.CREATED);
     }
 
 //    @PatchMapping(value = "/{id}") //localhost8080:bookshelf/{id}
@@ -27,10 +29,16 @@ public class BookshelfController {
 //        return new ResponseEntity<>(bookshelf, HttpStatus.OK);
 //    }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/{id}") //completeness
     public ResponseEntity<Bookshelf> updateBookshelf(@RequestBody BookshelfDTO bookshelfDTO, @PathVariable Long id){
         Bookshelf updatedBookshelf = bookshelfService.updateBookshelf(bookshelfDTO, id);
         return new ResponseEntity<>(updatedBookshelf, HttpStatus.OK);
+    }
+
+    @PatchMapping(value = "/{id}")
+    public ResponseEntity<Bookshelf> updateStatus(@RequestBody StatusDTO statusDTO, @PathVariable Long id){
+        Bookshelf updatedStatus = bookshelfService.updateStatus(statusDTO, id);
+        return new ResponseEntity<>(updatedStatus, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")

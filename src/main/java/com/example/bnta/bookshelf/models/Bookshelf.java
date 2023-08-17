@@ -30,7 +30,7 @@ public class Bookshelf { // K & R
     Bookshelf(User user, Book book){
         this.user = user;
         this.book = book;
-//        this.status = status;
+        this.status = Status.WANT_TO_READ;
     }
 
     public Bookshelf(){}

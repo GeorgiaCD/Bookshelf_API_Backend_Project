@@ -1,8 +1,6 @@
 package com.example.bnta.bookshelf.services;
 
-import com.example.bnta.bookshelf.models.Bookshelf;
-import com.example.bnta.bookshelf.models.BookshelfDTO;
-import com.example.bnta.bookshelf.models.Status;
+import com.example.bnta.bookshelf.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.bnta.bookshelf.repositories.BookRepository;
@@ -41,6 +39,13 @@ public class BookshelfService {
 //        bookshelfRepository.save(bookshelf);
 //        return bookshelf;
 //    }
+
+    public Bookshelf updateStatus(StatusDTO statusDTO, Long id){
+        Bookshelf bookshelf = bookshelfRepository.findById(id).get();
+        bookshelf.setStatus(statusDTO.getStatus());
+        bookshelfRepository.save(bookshelf);
+        return bookshelf;
+    }
 
     public Bookshelf updateBookshelf(BookshelfDTO bookshelfDTO, Long id){
         Bookshelf bookshelfToUpdate = bookshelfRepository.findById(id).get();
