@@ -89,4 +89,8 @@ public class BookshelfService {
         bookshelfRepository.save(bookshelf);
         return bookshelf;
     }
+
+    public List<Bookshelf> getByStatus(Status status){
+        return bookshelfRepository.findByStatus(status);
+    }
 }
