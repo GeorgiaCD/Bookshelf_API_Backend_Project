@@ -46,17 +46,17 @@ public class BookshelfController {
         return new ResponseEntity<>(bookshelf, HttpStatus.GONE);
     }
 
-//    @GetMapping
-//    public ResponseEntity<List<UserBookshelfDTO>> findBookshelfByUserId(@RequestParam Long userId){
-//        List<UserBookshelfDTO> userBookshelves = bookshelfService.findBookshelfById(userId);
-//        return new ResponseEntity<>(userBookshelves, HttpStatus.FOUND);
-//    }
-
     @GetMapping
-    public ResponseEntity<List<Bookshelf>> findBookshelfByUserId(@RequestParam Long userId){
-        List<Bookshelf> userBookshelves = bookshelfService.findBookshelfById(userId);
+    public ResponseEntity<List<UserBookshelfDTO>> findBookshelfByUserId(@RequestParam Long userId){
+        List<UserBookshelfDTO> userBookshelves = bookshelfService.findBookshelfById(userId);
         return new ResponseEntity<>(userBookshelves, HttpStatus.FOUND);
     }
+//
+//    @GetMapping
+//    public ResponseEntity<List<Bookshelf>> findBookshelfByUserId(@RequestParam Long userId){
+//        List<Bookshelf> userBookshelves = bookshelfService.findBookshelfById(userId);
+//        return new ResponseEntity<>(userBookshelves, HttpStatus.FOUND);
+//    }
 
     @PatchMapping(value = "/{id}/rating")
     public ResponseEntity<Bookshelf> updateRating(@RequestBody RatingDTO ratingDTO, @PathVariable Long id){

@@ -66,21 +66,21 @@ public class BookshelfService {
         return bookshelf;
     }
 
-//    public List<UserBookshelfDTO> findBookshelfById(Long userId){
-//        List<Bookshelf> bookshelf = bookshelfRepository.findByUserId(userId);
-//        List<UserBookshelfDTO> simpleBookshelf = new ArrayList<>();
-//        UserBookshelfDTO userBookshelf;
-//        for(Bookshelf currentBookshelf : bookshelf){
-//            userBookshelf = new UserBookshelfDTO(currentBookshelf.getBook(),currentBookshelf.getStatus());
-//            simpleBookshelf.add(userBookshelf);
-//        }
-//        return simpleBookshelf;
-//    }
-
-    public List<Bookshelf> findBookshelfById(Long userId){
+    public List<UserBookshelfDTO> findBookshelfById(Long userId){
         List<Bookshelf> bookshelf = bookshelfRepository.findByUserId(userId);
-        return bookshelf;
+        List<UserBookshelfDTO> simpleBookshelf = new ArrayList<>();
+        UserBookshelfDTO userBookshelf;
+        for(Bookshelf currentBookshelf : bookshelf){
+            userBookshelf = new UserBookshelfDTO(currentBookshelf.getBook(),currentBookshelf.getStatus(), currentBookshelf.getRating());
+            simpleBookshelf.add(userBookshelf);
+        }
+        return simpleBookshelf;
     }
+
+//    public List<Bookshelf> findBookshelfById(Long userId){
+//        List<Bookshelf> bookshelf = bookshelfRepository.findByUserId(userId);
+//        return bookshelf;
+//    }
 
 
     public Bookshelf updateRating(RatingDTO ratingDTO, Long id){
