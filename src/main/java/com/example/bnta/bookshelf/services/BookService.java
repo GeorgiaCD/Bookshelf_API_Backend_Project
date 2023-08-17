@@ -86,7 +86,7 @@ public class BookService {
     }
 
     public List<Book> getByLength(int length){
-        return bookRepository.findByLengthLessThan(length);
+        return bookRepository.findByNumberOfPagesLessThan(length);
     }
 
 

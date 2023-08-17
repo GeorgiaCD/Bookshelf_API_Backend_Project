@@ -32,8 +32,8 @@ public class BookController {
     @GetMapping
     public ResponseEntity<List<Book>> getAllFilteredBooks(@RequestParam(required = false, name ="genre") Genre genre,
                                                            @RequestParam(required = false, name ="authorId") Long authorId,
-                                                           @RequestParam(required = false, name ="year") int year,
-                                                           @RequestParam(required = false, name ="length") int length)
+                                                           @RequestParam(required = false, name ="year") Integer year,
+                                                           @RequestParam(required = false, name ="length") Integer length)
     {
         if(genre != null){
             List<Book> booksByGenre = bookService.getByGenre(genre);
@@ -52,20 +52,8 @@ public class BookController {
             return new ResponseEntity<>(booksByLength, HttpStatus.OK);
         }
 
-
-        if(filteredBooks.isEmpty()){
-            List<Book> allBooks = bookService.getAllBooks();
-            return new ResponseEntity<>(allBooks, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(filteredBooks, HttpStatus.OK);
+        return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
     }
-
-    //    INDEX
-//    @GetMapping
-//    public ResponseEntity<List<Book>> getALlBooksAndGenres() {
-//        List<Book> allBooks = bookService.getAllBooks();
-//        return new ResponseEntity<>(allBooks, HttpStatus.OK);
-//    }
 
 
     //    SHOW
