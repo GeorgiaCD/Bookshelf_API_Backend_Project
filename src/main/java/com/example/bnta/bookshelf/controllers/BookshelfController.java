@@ -34,7 +34,7 @@ public class BookshelfController {
         return new ResponseEntity<>(updatedBookshelf, HttpStatus.OK);
     }
 
-    @PatchMapping(value = "/{id}")
+    @PatchMapping(value = "/{id}/status")
     public ResponseEntity<Bookshelf> updateStatus(@RequestBody StatusDTO statusDTO, @PathVariable Long id){
         Bookshelf updatedStatus = bookshelfService.updateStatus(statusDTO, id);
         return new ResponseEntity<>(updatedStatus, HttpStatus.OK);
@@ -51,6 +51,21 @@ public class BookshelfController {
         List<Bookshelf> bookshelves = bookshelfService.findBookshelfById(userId);
         return new ResponseEntity<>(bookshelves, HttpStatus.FOUND);
     }
+
+    @PatchMapping(value = "/{id}/rating")
+    public ResponseEntity<Bookshelf> updateRating(@RequestBody RatingDTO ratingDTO, @PathVariable Long id){
+        if (ratingDTO.getRating()<=10 && (ratingDTO.getRating()>=0)){
+            Bookshelf updateRating = bookshelfService.updateRating(ratingDTO, id);
+            return new ResponseEntity<>(updateRating, HttpStatus.OK);
+        }
+        else {
+            throw new IllegalArgumentException("Rating must be less that or equal to 10");
+        }
+
+    }
+
+
+
 
 
 

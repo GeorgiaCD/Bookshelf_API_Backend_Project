@@ -70,4 +70,10 @@ public class BookshelfService {
     }
 
 
+    public Bookshelf updateRating(RatingDTO ratingDTO, Long id){
+        Bookshelf bookshelf = bookshelfRepository.findById(id).get();
+        bookshelf.setRating(ratingDTO.getRating());
+        bookshelfRepository.save(bookshelf);
+        return bookshelf;
+    }
 }
