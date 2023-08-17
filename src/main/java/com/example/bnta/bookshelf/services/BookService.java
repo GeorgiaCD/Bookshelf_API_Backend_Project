@@ -3,6 +3,7 @@ package com.example.bnta.bookshelf.services;
 import com.example.bnta.bookshelf.models.Book;
 import com.example.bnta.bookshelf.models.BookDTO;
 import com.example.bnta.bookshelf.models.Bookshelf;
+import com.example.bnta.bookshelf.models.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.bnta.bookshelf.repositories.BookRepository;
@@ -70,5 +71,10 @@ public class BookService {
         bookRepository.deleteById(id);
     }
 
+
+    // get all filtered books
+    public List<Book> getFilteredBooks(Genre genre, int authorId, int year, int length ){
+
+    }
 
 }

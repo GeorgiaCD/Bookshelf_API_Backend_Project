@@ -26,28 +26,28 @@ public class BookController {
 //    * GET / books?year = 1991
 //    * GET / books?length > 200
 
-//    INDEX
-//    @GetMapping
-//    public ResponseEntity<List<Book>> getALlBooksAndGenres(@RequestParam(required = false, name ="genre") int genreId,
-//                                                           @RequestParam(required = false, name ="author") Long authorId,
-//                                                           @RequestParam(required = false, name ="year") int year,
-//                                                           @RequestParam(required = false, name ="length") int length)
-//    {
-//        List<Book> filteredBooks = bookService.getFilteredBooks(genreId, authorId, year, length);
-//
-//        if(filteredBooks.isEmpty()){
-//            List<Book> allBooks = bookService.getAllBooks();
-//            return new ResponseEntity<>(allBooks, HttpStatus.OK);
-//        }
-//        return new ResponseEntity<>(filteredBooks, HttpStatus.OK);
-//    }
+    INDEX
+    @GetMapping
+    public ResponseEntity<List<Book>> getALlBooksAndGenres(@RequestParam(required = false, name ="genre") int genreId,
+                                                           @RequestParam(required = false, name ="author") Long authorId,
+                                                           @RequestParam(required = false, name ="year") int year,
+                                                           @RequestParam(required = false, name ="length") int length)
+    {
+        List<Book> filteredBooks = bookService.getFilteredBooks(genreId, authorId, year, length);
+
+        if(filteredBooks.isEmpty()){
+            List<Book> allBooks = bookService.getAllBooks();
+            return new ResponseEntity<>(allBooks, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(filteredBooks, HttpStatus.OK);
+    }
 
     //    INDEX
-    @GetMapping
-    public ResponseEntity<List<Book>> getALlBooksAndGenres() {
-        List<Book> allBooks = bookService.getAllBooks();
-        return new ResponseEntity<>(allBooks, HttpStatus.OK);
-    }
+//    @GetMapping
+//    public ResponseEntity<List<Book>> getALlBooksAndGenres() {
+//        List<Book> allBooks = bookService.getAllBooks();
+//        return new ResponseEntity<>(allBooks, HttpStatus.OK);
+//    }
 
 
     //    SHOW
