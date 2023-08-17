@@ -54,8 +54,6 @@ public class BookshelfService {
         Bookshelf bookshelfToUpdate = bookshelfRepository.findById(id).get();
         bookshelfToUpdate.setBook(bookRepository.findById(bookshelfDTO.getBookId()).get());
         bookshelfToUpdate.setUser(userRepository.findById(bookshelfDTO.getUserId()).get());
-//        Status status = bookshelfDTO.getStatus();
-//        bookshelfToUpdate.setStatus(status);
         bookshelfRepository.save(bookshelfToUpdate);
         return bookshelfToUpdate;
     }

@@ -57,7 +57,7 @@ public class BookshelfController {
         List<UserBookshelfDTO> userBookshelves = bookshelfService.findBookshelfById(userId);
         return new ResponseEntity(userBookshelves, HttpStatus.FOUND);
     }
-//
+
 //    @GetMapping
 //    public ResponseEntity<List<Bookshelf>> findBookshelfByUserId(@RequestParam Long userId){
 //        List<Bookshelf> userBookshelves = bookshelfService.findBookshelfById(userId);
