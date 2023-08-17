@@ -11,5 +11,5 @@ import java.util.List;
 public interface BookshelfRepository extends JpaRepository <Bookshelf, Long>{
 
     List<Bookshelf> findByUserId(Long userId);
-    List<Bookshelf> findByStatus(Status status);
+//    List<Bookshelf> findByStatus(Status status);
 }
