@@ -1,14 +1,13 @@
 package com.example.bnta.bookshelf.controllers;
 
-import com.example.bnta.bookshelf.models.Bookshelf;
-import com.example.bnta.bookshelf.models.BookshelfDTO;
-import com.example.bnta.bookshelf.models.Status;
-import com.example.bnta.bookshelf.models.StatusDTO;
+import com.example.bnta.bookshelf.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.bnta.bookshelf.services.BookshelfService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "bookshelf")
@@ -35,7 +34,7 @@ public class BookshelfController {
         return new ResponseEntity<>(updatedBookshelf, HttpStatus.OK);
     }
 
-    @PatchMapping(value = "/{id}")
+    @PatchMapping(value = "/{id}/status")
     public ResponseEntity<Bookshelf> updateStatus(@RequestBody StatusDTO statusDTO, @PathVariable Long id){
         Bookshelf updatedStatus = bookshelfService.updateStatus(statusDTO, id);
         return new ResponseEntity<>(updatedStatus, HttpStatus.OK);
@@ -46,6 +45,35 @@ public class BookshelfController {
         Bookshelf bookshelf = bookshelfService.deleteBookFromBookshelf(id);
         return new ResponseEntity<>(bookshelf, HttpStatus.GONE);
     }
+
+    @GetMapping
+    public ResponseEntity<List<UserBookshelfDTO>> findBookshelfByUserId(@RequestParam Long userId){
+        List<UserBookshelfDTO> userBookshelves = bookshelfService.findBookshelfById(userId);
+        return new ResponseEntity<>(userBookshelves, HttpStatus.FOUND);
+    }
+//
+//    @GetMapping
+//    public ResponseEntity<List<Bookshelf>> findBookshelfByUserId(@RequestParam Long userId){
+//        List<Bookshelf> userBookshelves = bookshelfService.findBookshelfById(userId);
+//        return new ResponseEntity<>(userBookshelves, HttpStatus.FOUND);
+//    }
+
+    @PatchMapping(value = "/{id}/rating")
+    public ResponseEntity<Bookshelf> updateRating(@RequestBody RatingDTO ratingDTO, @PathVariable Long id){
+        if (ratingDTO.getRating()<=10 && (ratingDTO.getRating()>=0)){
+            Bookshelf updateRating = bookshelfService.updateRating(ratingDTO, id);
+            return new ResponseEntity<>(updateRating, HttpStatus.OK);
+        }
+        else {
+            throw new IllegalArgumentException("Rating must be less that or equal to 10");
+        }
+
+    }
+
+
+
+
+
 
 
 

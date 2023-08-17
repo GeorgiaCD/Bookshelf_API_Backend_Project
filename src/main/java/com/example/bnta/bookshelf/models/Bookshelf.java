@@ -31,6 +31,7 @@ public class Bookshelf { // K & R
         this.user = user;
         this.book = book;
         this.status = Status.WANT_TO_READ;
+        this.rating = 0;
     }
 
     public Bookshelf(){}
