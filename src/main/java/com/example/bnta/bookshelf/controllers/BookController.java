@@ -29,7 +29,7 @@ public class BookController {
     INDEX
     @GetMapping
     public ResponseEntity<List<Book>> getALlBooksAndGenres(@RequestParam(required = false, name ="genre") int genreId,
-                                                           @RequestParam(required = false, name ="author") Long authorId,
+                                                           @RequestParam(required = false, name ="authorId") Long authorId,
                                                            @RequestParam(required = false, name ="year") int year,
                                                            @RequestParam(required = false, name ="length") int length)
     {

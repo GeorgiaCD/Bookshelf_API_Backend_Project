@@ -73,8 +73,22 @@ public class BookService {
 
 
     // get all filtered books
-    public List<Book> getFilteredBooks(Genre genre, int authorId, int year, int length ){
-
+    public List<Book> getByGenre(Genre genre){
+        return bookRepository.findByGenre(genre);
     }
+
+    public List<Book> getByAuthorId(Long authorId){
+        return bookRepository.findByAuthorId(authorId);
+    }
+
+    public List<Book> getByYear(int year){
+        return bookRepository.findByYear(year);
+    }
+
+    public List<Book> getByLength(int length){
+        return bookRepository.findByLengthLessThan(length);
+    }
+
+
 
 }
