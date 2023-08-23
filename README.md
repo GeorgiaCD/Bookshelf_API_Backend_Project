@@ -112,8 +112,34 @@ The rating is a property of the bookshelf item rather than the book as each user
 
 |Controller | Mapping |Path | Description | Output | 
 |----------|-----------|------|-------------|--------|
-|Author |GET |localhost:8080/authors|Returns list of all authors|--------|
-| |GET |localhost:8080/authors/1|Returns author with Id = 1|--------|
+|Author |GET |localhost:8080/authors|show all authors |Returns a list of all authors|
+|   |GET |localhost:8080/authors/{id}|index show author with id={id}|Returns the author with id={id}|
+|   |GET |localhost:8080/authors?name=firstName%20lastName|show author by name|Returns author with name = "firstName lastName"|
+|   |POST |localhost:8080/authors|create an author |Taking only a name parameter|
+|   |PUT |localhost:8080/authors/{id}|edit author with id={id} |Name can only be edited|
+|   |DELETE |localhost:8080/authors/{id}|delete author with id={id}|**|
+|Book |GET |localhost:8080/books|show all books||
+|   |GET |localhost:8080/books?genre=GENRE|show books with GENRE = GENRE ||
+|   |GET |localhost:8080/books?authorId={id}|show books with authorid={id} ||
+|   |GET |localhost:8080/books?year=int|show books with year = int ||
+|   |GET |localhost:8080/books?numberOfPages=int|show books with numberOfPages< int  |returns list of books with page count less than int|
+|   |GET |localhost:8080/books/{id}|show book with id ={id}||
+|   |POST |localhost:8080/books|creates a book ||
+|   |PUT |localhost:8080/books/{id}|edit book with id={id} ||
+|   |DELETE |localhost:8080/books/{id}|Deletes book with Id ={id}|**|
+|User |GET |localhost:8080/users|show all users||
+|   |GET |localhost:8080/users/{id}|index show user with id={id} ||
+|   |POST |localhost:8080/users|creates a user ||
+|   |PUT|localhost:8080/users|update a user ||
+|   |GET |localhost:8080/users/{id}|Returns user with Id = {id}||
+|   |DELETE |localhost:8080/users/{id}|Deletes user with Id = {id}|**|
+|Bookshelf |GET |localhost:8080/bookshelf|show all bookshelf items||
+|   |GET |localhost:8080/bookshelf?userId={id}|show bookshelfs of user with userId = {id} ||
+|   |GET |localhost:8080/bookshelf?userId={id}&status=STATUS|Returns bookshelf items with userId = {id} & STATUS = STATUS||
+|   |POST |localhost:8080/bookshelf|creates a bookshelf ||
+|   |PUT |localhost:8080/bookshelf/{id}|update a bookshelf with bookshelfId ={id} ||
+|   |DELETE |localhost:8080/bookshelf/{id}|Deletes bookshelf with Id = {id}||
+|   |PATCH | localhost:8080/bookshelf/{id}/rating| | |
 
 
 
