@@ -5,7 +5,7 @@
 - Georgia Crawford-Dellar (GitHub: [GeorgiaCD](https://github.com/GeorgiaCD))
 - Francesca (GitHub: [Francescam31](Link))
 - Kevin Chan (GitHub: [Kibiko](https://github.com/Kibiko))
-- inserrt (GitHub: [github](link))
+- Rohaib Ahmed (GitHub: [rohaib1]((https://github.com/rohaib1)))
 
 <hr />
 
