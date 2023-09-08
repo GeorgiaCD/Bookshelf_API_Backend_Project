@@ -11,14 +11,14 @@
 
 ## TABLE OF CONTENTS
 
-> 1. ...
-> 2. ...
-> 3. ...
-> 4. ..
-> 5. ..
-> 6. ..
-> 7. ..
-> 8. ..
+> 1. Description
+> 2. Timestamps 
+> 3. Model Descriptions
+> 4. Class Diagram
+> 5. Entity Relationship Diagram
+> 6. How to use the API 
+> 7. Limitations
+> 8. Tech Stack and dependencies 
 
 
 ## Description
