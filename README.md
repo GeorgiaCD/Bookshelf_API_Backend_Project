@@ -88,6 +88,7 @@ NOTE: in the API, we use the plural bookshelves when referring to a List of book
 
 ### Status  (StatusDTO)
 ### Genres
+Genres are an enum class. 
 
 ### RatingDTO
 
