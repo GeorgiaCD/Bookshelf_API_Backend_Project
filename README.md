@@ -21,7 +21,7 @@
 > 8. Tech Stack and dependencies 
 
 
-## 1 Description
+## 1. Description
 
 This project is an online bookshelf where users can keep a track of their books they have on the bookshelf. The bookshelf represents the relationship between the user and a book on their list. This is our to-do list.
 
@@ -40,7 +40,7 @@ MVP:
 - Filter items on your bookshelf by properties
 You can see a visual representaion of how it all comes together through the UML, ERD and a description of the classes.
 
-### 2 Timestamps 
+### 2. Timestamps 
 <hr />
 
 Thursday 10th August
@@ -73,7 +73,7 @@ Friday 18th August
 - Developed README file.
 - Present work.
 
-### 3 Models
+### 3. Models
 <hr />
 
 ### Author (AuthorDTO)
@@ -94,7 +94,7 @@ Genres are an enum class.
 
 The rating is a property of the bookshelf item rather than the book as each user can review the book and give their rating for it. There is no rating object, however there is a RatingDTO to pass in a JSON body to update the rating for a specific bookshelf item. 
 
-## 4 Class Diagram
+## 4. Class Diagram
 
 ### Models
 
@@ -104,11 +104,11 @@ The rating is a property of the bookshelf item rather than the book as each user
 
 ![service layers](bookshelf_UML_routes.png)
 
-## 5 Entity Relationship Diagram
+## 5. Entity Relationship Diagram
 
 ![erd](bookshelf_ERD.png)
 
-## 6 How to use the API 
+## 6. How to use the API 
 #### RESTful route endpoints
 
 |Controller | Mapping |Path | Description | Output | 
@@ -144,10 +144,10 @@ The rating is a property of the bookshelf item rather than the book as each user
 
 
 
-### 7 Limitations
+### 7. Limitations
 (delete mapping etc)
 
- ## 8 Tech Stack and dependencies 
+ ## 8. Tech Stack and dependencies 
  The technologies used for this project are:
 - Intellij IDEA, running JDK 17
 - Postman
